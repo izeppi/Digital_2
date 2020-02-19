@@ -57,6 +57,8 @@ void __interrupt()ISR (void){
     }
 }
 
+void Configuracion(void);
+
 void main(void) {
     Recibo_SPI (Sel_pot);
     __delay_ms(100);
@@ -66,4 +68,11 @@ void main(void) {
     if (Sel_pot == 2){
         Envio_SPI(Pot_2);
     }
+}
+
+void Configuracion(void){
+    Init_ADC();
+    INTCONbits.GIE = 1;
+    Interrupciones_ADC();
+    init_SPI(0101,1); 
 }
