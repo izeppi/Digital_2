@@ -30,9 +30,6 @@
 #include "ADC.h"
 #include "SPI.h"
 #define _XTAL_FREQ 4000000
- 
-void Envio(char Lol);
-void FloatDec(float Variable,uint8_t Selector );
 
 unsigned char Pot_1 = 0;
 unsigned char Pot_2 = 0;
@@ -60,6 +57,7 @@ void __interrupt()ISR (void){
 void Configuracion(void);
 
 void main(void) {
+    Configuracion ();
     Recibo_SPI (Sel_pot);
     __delay_ms(100);
     if (Sel_pot == 1){
