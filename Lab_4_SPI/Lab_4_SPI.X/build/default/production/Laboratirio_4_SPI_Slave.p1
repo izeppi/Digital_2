@@ -31,6 +31,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1276
 [v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
 [p mainexit ]
+"57 Laboratirio_4_SPI_Slave.c
+[v _Configuracion `(v ~T0 @X0 0 ef ]
 "38 SPI.h
 [v _Recibo_SPI `(v ~T0 @X0 0 ef1`uc ]
 [v F1258 `(v ~T0 @X0 1 tf1`ul ]
@@ -1628,155 +1630,156 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SPI.h: 37: void init_SPI (uint8_t selector, uint8_t sck_bit );
 [; ;SPI.h: 38: void Recibo_SPI(uint8_t Variable);
 [; ;SPI.h: 39: void Envio_SPI (uint8_t Data);
-[; ;Laboratirio_4_SPI_Slave.c: 34: void Envio(char Lol);
-[; ;Laboratirio_4_SPI_Slave.c: 35: void FloatDec(float Variable,uint8_t Selector );
-"37 Laboratirio_4_SPI_Slave.c
+"34 Laboratirio_4_SPI_Slave.c
 [v _Pot_1 `uc ~T0 @X0 1 e ]
 [i _Pot_1
 -> -> 0 `i `uc
 ]
-[; ;Laboratirio_4_SPI_Slave.c: 37: unsigned char Pot_1 = 0;
-"38
+[; ;Laboratirio_4_SPI_Slave.c: 34: unsigned char Pot_1 = 0;
+"35
 [v _Pot_2 `uc ~T0 @X0 1 e ]
 [i _Pot_2
 -> -> 0 `i `uc
 ]
-[; ;Laboratirio_4_SPI_Slave.c: 38: unsigned char Pot_2 = 0;
-"39
+[; ;Laboratirio_4_SPI_Slave.c: 35: unsigned char Pot_2 = 0;
+"36
 [v _b `c ~T0 @X0 1 e ]
 [i _b
 -> -> 0 `i `c
 ]
-[; ;Laboratirio_4_SPI_Slave.c: 39: int8_t b = 0;
-"40
+[; ;Laboratirio_4_SPI_Slave.c: 36: int8_t b = 0;
+"37
 [v _Counter `uc ~T0 @X0 1 e ]
 [i _Counter
 -> -> 1 `i `uc
 ]
-[; ;Laboratirio_4_SPI_Slave.c: 40: unsigned char Counter = 1;
-"41
+[; ;Laboratirio_4_SPI_Slave.c: 37: unsigned char Counter = 1;
+"38
 [v _Sel_pot `uc ~T0 @X0 1 e ]
 [i _Sel_pot
 -> -> 0 `i `uc
 ]
-[; ;Laboratirio_4_SPI_Slave.c: 41: uint8_t Sel_pot = 0;
+[; ;Laboratirio_4_SPI_Slave.c: 38: uint8_t Sel_pot = 0;
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"43
+"40
 [v _ISR `(v ~T10 @X0 1 ef ]
 {
-[; ;Laboratirio_4_SPI_Slave.c: 43: void __interrupt()ISR (void){
+[; ;Laboratirio_4_SPI_Slave.c: 40: void __interrupt()ISR (void){
 [e :U _ISR ]
 [f ]
-[; ;Laboratirio_4_SPI_Slave.c: 44: if (PIR1bits.ADIF == 1)
-"44
+[; ;Laboratirio_4_SPI_Slave.c: 41: if (PIR1bits.ADIF == 1)
+"41
 [e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 140  ]
-[; ;Laboratirio_4_SPI_Slave.c: 45: {
-"45
+[; ;Laboratirio_4_SPI_Slave.c: 42: {
+"42
 {
-[; ;Laboratirio_4_SPI_Slave.c: 46: b++;
-"46
+[; ;Laboratirio_4_SPI_Slave.c: 43: b++;
+"43
 [e ++ _b -> -> 1 `i `c ]
-[; ;Laboratirio_4_SPI_Slave.c: 47: if(b%2 == 1){
-"47
+[; ;Laboratirio_4_SPI_Slave.c: 44: if(b%2 == 1){
+"44
 [e $ ! == % -> _b `i -> 2 `i -> 1 `i 141  ]
 {
-[; ;Laboratirio_4_SPI_Slave.c: 48: Canales_ADC(8);
-"48
+[; ;Laboratirio_4_SPI_Slave.c: 45: Canales_ADC(8);
+"45
 [e ( _Canales_ADC (1 -> -> 8 `i `uc ]
-[; ;Laboratirio_4_SPI_Slave.c: 49: Pot_1 = ADRESH;
-"49
+[; ;Laboratirio_4_SPI_Slave.c: 46: Pot_1 = ADRESH;
+"46
 [e = _Pot_1 _ADRESH ]
-"50
+"47
 }
 [e :U 141 ]
-[; ;Laboratirio_4_SPI_Slave.c: 50: }
-[; ;Laboratirio_4_SPI_Slave.c: 51: if (b%2 == 0){
-"51
+[; ;Laboratirio_4_SPI_Slave.c: 47: }
+[; ;Laboratirio_4_SPI_Slave.c: 48: if (b%2 == 0){
+"48
 [e $ ! == % -> _b `i -> 2 `i -> 0 `i 142  ]
 {
-[; ;Laboratirio_4_SPI_Slave.c: 52: Canales_ADC(9);
-"52
+[; ;Laboratirio_4_SPI_Slave.c: 49: Canales_ADC(9);
+"49
 [e ( _Canales_ADC (1 -> -> 9 `i `uc ]
-[; ;Laboratirio_4_SPI_Slave.c: 53: Pot_2 = ADRESH;
-"53
+[; ;Laboratirio_4_SPI_Slave.c: 50: Pot_2 = ADRESH;
+"50
 [e = _Pot_2 _ADRESH ]
-"54
+"51
 }
 [e :U 142 ]
-[; ;Laboratirio_4_SPI_Slave.c: 54: }
-[; ;Laboratirio_4_SPI_Slave.c: 55: ADCON0bits.GO_DONE = 1;
-"55
+[; ;Laboratirio_4_SPI_Slave.c: 51: }
+[; ;Laboratirio_4_SPI_Slave.c: 52: ADCON0bits.GO_DONE = 1;
+"52
 [e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
-[; ;Laboratirio_4_SPI_Slave.c: 56: PIR1bits.ADIF = 0;
-"56
+[; ;Laboratirio_4_SPI_Slave.c: 53: PIR1bits.ADIF = 0;
+"53
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"57
+"54
 }
 [e :U 140 ]
-[; ;Laboratirio_4_SPI_Slave.c: 57: }
-[; ;Laboratirio_4_SPI_Slave.c: 58: }
-"58
+[; ;Laboratirio_4_SPI_Slave.c: 54: }
+[; ;Laboratirio_4_SPI_Slave.c: 55: }
+"55
 [e :UE 139 ]
 }
-[; ;Laboratirio_4_SPI_Slave.c: 60: void Configuracion(void);
+[; ;Laboratirio_4_SPI_Slave.c: 57: void Configuracion(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"62
+"59
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Laboratirio_4_SPI_Slave.c: 62: void main(void) {
+[; ;Laboratirio_4_SPI_Slave.c: 59: void main(void) {
 [e :U _main ]
 [f ]
-[; ;Laboratirio_4_SPI_Slave.c: 63: Recibo_SPI (Sel_pot);
-"63
+[; ;Laboratirio_4_SPI_Slave.c: 60: Configuracion ();
+"60
+[e ( _Configuracion ..  ]
+[; ;Laboratirio_4_SPI_Slave.c: 61: Recibo_SPI (Sel_pot);
+"61
 [e ( _Recibo_SPI (1 _Sel_pot ]
-[; ;Laboratirio_4_SPI_Slave.c: 64: _delay((unsigned long)((100)*(4000000/4000.0)));
-"64
+[; ;Laboratirio_4_SPI_Slave.c: 62: _delay((unsigned long)((100)*(4000000/4000.0)));
+"62
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;Laboratirio_4_SPI_Slave.c: 65: if (Sel_pot == 1){
-"65
+[; ;Laboratirio_4_SPI_Slave.c: 63: if (Sel_pot == 1){
+"63
 [e $ ! == -> _Sel_pot `i -> 1 `i 144  ]
 {
-[; ;Laboratirio_4_SPI_Slave.c: 66: Envio_SPI(Pot_1);
-"66
+[; ;Laboratirio_4_SPI_Slave.c: 64: Envio_SPI(Pot_1);
+"64
 [e ( _Envio_SPI (1 _Pot_1 ]
-"67
+"65
 }
 [e :U 144 ]
-[; ;Laboratirio_4_SPI_Slave.c: 67: }
-[; ;Laboratirio_4_SPI_Slave.c: 68: if (Sel_pot == 2){
-"68
+[; ;Laboratirio_4_SPI_Slave.c: 65: }
+[; ;Laboratirio_4_SPI_Slave.c: 66: if (Sel_pot == 2){
+"66
 [e $ ! == -> _Sel_pot `i -> 2 `i 145  ]
 {
-[; ;Laboratirio_4_SPI_Slave.c: 69: Envio_SPI(Pot_2);
-"69
+[; ;Laboratirio_4_SPI_Slave.c: 67: Envio_SPI(Pot_2);
+"67
 [e ( _Envio_SPI (1 _Pot_2 ]
-"70
+"68
 }
 [e :U 145 ]
-[; ;Laboratirio_4_SPI_Slave.c: 70: }
-[; ;Laboratirio_4_SPI_Slave.c: 71: }
-"71
+[; ;Laboratirio_4_SPI_Slave.c: 68: }
+[; ;Laboratirio_4_SPI_Slave.c: 69: }
+"69
 [e :UE 143 ]
 }
-"73
+"71
 [v _Configuracion `(v ~T0 @X0 1 ef ]
 {
-[; ;Laboratirio_4_SPI_Slave.c: 73: void Configuracion(void){
+[; ;Laboratirio_4_SPI_Slave.c: 71: void Configuracion(void){
 [e :U _Configuracion ]
 [f ]
-[; ;Laboratirio_4_SPI_Slave.c: 74: Init_ADC();
-"74
+[; ;Laboratirio_4_SPI_Slave.c: 72: Init_ADC();
+"72
 [e ( _Init_ADC ..  ]
-[; ;Laboratirio_4_SPI_Slave.c: 75: INTCONbits.GIE = 1;
-"75
+[; ;Laboratirio_4_SPI_Slave.c: 73: INTCONbits.GIE = 1;
+"73
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;Laboratirio_4_SPI_Slave.c: 76: Interrupciones_ADC();
-"76
+[; ;Laboratirio_4_SPI_Slave.c: 74: Interrupciones_ADC();
+"74
 [e ( _Interrupciones_ADC ..  ]
-[; ;Laboratirio_4_SPI_Slave.c: 77: init_SPI(0101,1);
-"77
+[; ;Laboratirio_4_SPI_Slave.c: 75: init_SPI(0101,1);
+"75
 [e ( _init_SPI (2 , -> -> 65 `i `uc -> -> 1 `i `uc ]
-[; ;Laboratirio_4_SPI_Slave.c: 78: }
-"78
+[; ;Laboratirio_4_SPI_Slave.c: 76: }
+"76
 [e :UE 146 ]
 }

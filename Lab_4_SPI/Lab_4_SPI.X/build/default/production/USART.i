@@ -2493,6 +2493,7 @@ extern __bank0 __bit __timeout;
 
 # 36 "USART.h"
 void Init_USART (void);
+void Envio(char Dato);
 
 # 13 "USART.c"
 void Init_USART (void){
@@ -2508,4 +2509,11 @@ RCSTAbits.SPEN = 1;
 RCSTAbits.CREN = 1;
 TXSTAbits.TXEN = 1;
 
+}
+
+void Envio(char Dato){
+while(TXSTAbits.TRMT == 0){
+
+}
+TXREG = Dato;
 }

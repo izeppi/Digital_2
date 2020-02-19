@@ -1,5 +1,5 @@
 
-# 1 "Laboratirio_4_SPI_Slave.c"
+# 1 "Laboratorio_4_SPI_Master.c"
 
 
 # 8
@@ -2657,57 +2657,54 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 37 "ADC.h"
-void Init_ADC(void);
-void Interrupciones_ADC (void);
-void Canales_ADC (char Canal);
+# 36 "USART.h"
+void Init_USART (void);
+void Envio(char Dato);
 
 # 37 "SPI.h"
 void init_SPI (uint8_t selector, uint8_t sck_bit );
 void Recibo_SPI(uint8_t Variable);
 void Envio_SPI (uint8_t Data);
 
-# 34 "Laboratirio_4_SPI_Slave.c"
-unsigned char Pot_1 = 0;
-unsigned char Pot_2 = 0;
-int8_t b = 0;
-unsigned char Counter = 1;
-uint8_t Sel_pot = 0;
+# 34 "Laboratorio_4_SPI_Master.c"
+uint8_t Contador = 0;
+uint8_t Pot_1 = 0;
+uint8_t Pot_2 = 0;
+
 
 void __interrupt()ISR (void){
-if (PIR1bits.ADIF == 1)
-{
-b++;
-if(b%2 == 1){
-Canales_ADC(8);
-Pot_1 = ADRESH;
+if (PIR1bits.RCIF == 1){
+Contador = RCREG;
 }
-if (b%2 == 0){
-Canales_ADC(9);
-Pot_2 = ADRESH;
-}
-ADCON0bits.GO_DONE = 1;
-PIR1bits.ADIF = 0;
-}
-}
+
 
 void Configuracion(void);
 
 void main(void) {
-Configuracion ();
-Recibo_SPI (Sel_pot);
+Configuracion();
+Envio_SPI (1);
 _delay((unsigned long)((100)*(4000000/4000.0)));
-if (Sel_pot == 1){
-Envio_SPI(Pot_1);
-}
-if (Sel_pot == 2){
-Envio_SPI(Pot_2);
+
+while(1){
+Envio_SPI(2);
+Recibo_SPI(Pot_1);
+_delay((unsigned long)((100)*(4000000/4000.0)));
+Envio_SPI(1);
+Recibo_SPI(Pot_2);
+_delay((unsigned long)((100)*(4000000/4000.0)));
+Envio (Pot_1);
+Envio (Pot_2);
+PORTA = Contador;
 }
 }
 
+
 void Configuracion(void){
-Init_ADC();
+ANSEL = 0;
+ANSELH = 0;
+TRISA = 0;
+PORTA = 0;
 INTCONbits.GIE = 1;
-Interrupciones_ADC();
+Init_USART();
 init_SPI(0101,1);
 }

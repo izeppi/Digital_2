@@ -48,6 +48,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S36 . . . . . ]
 "1068
 [v _RCSTAbits `VS36 ~T0 @X0 0 e@24 ]
+"1133
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1533,6 +1535,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 138: extern __bank0 __bit __powerdown;
 [; ;pic.h: 139: extern __bank0 __bit __timeout;
 [; ;USART.h: 36: void Init_USART (void);
+[; ;USART.h: 37: void Envio(char Dato);
 "13 USART.c
 [v _Init_USART `(v ~T0 @X0 1 ef ]
 {
@@ -1566,4 +1569,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;USART.c: 26: }
 "26
 [e :UE 138 ]
+}
+"28
+[v _Envio `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;USART.c: 28: void Envio(char Dato){
+[e :U _Envio ]
+[v _Dato `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;USART.c: 29: while(TXSTAbits.TRMT == 0){
+"29
+[e $U 140  ]
+[e :U 141 ]
+{
+"31
+}
+[e :U 140 ]
+"29
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 141  ]
+[e :U 142 ]
+[; ;USART.c: 31: }
+[; ;USART.c: 32: TXREG = Dato;
+"32
+[e = _TXREG _Dato ]
+[; ;USART.c: 33: }
+"33
+[e :UE 139 ]
 }

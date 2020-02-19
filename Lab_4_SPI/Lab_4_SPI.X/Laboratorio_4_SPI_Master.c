@@ -50,13 +50,11 @@ void main(void) {
     __delay_ms(100);
     
     while(1){
+        Envio_SPI(2);      // Envio el # del Pot 2
         Recibo_SPI(Pot_1);  //Recibo valor del Pot 1 
         __delay_ms(100);
-        Envio_SPI(2);      // Envio el # del Pot 2
-        __delay_ms(100);
+        Envio_SPI(1);       // Envio el # del Pot 1
         Recibo_SPI(Pot_2); //Recibo valor del Pot 2
-        __delay_ms(100);
-        Envio_SPI(1)       // Envio el # del Pot 1
         __delay_ms(100);
         Envio (Pot_1);      // UART pot 1
         Envio (Pot_2);     // UART pot 2

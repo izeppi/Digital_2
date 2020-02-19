@@ -4,9 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>SPI.h</itemPath>
-      <itemPath>ADC.h</itemPath>
-      <itemPath>USART.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -15,10 +12,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>SPI.c</itemPath>
-      <itemPath>ADC.c</itemPath>
-      <itemPath>USART.c</itemPath>
-      <itemPath>Laboratorio_4_SPI_Master.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -576,7 +569,7 @@
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="gcc-opt-driver-new" value="true"/>
-        <property key="gcc-opt-std" value="-std=c90"/>
+        <property key="gcc-opt-std" value="-std=c99"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
         <property key="omit-pack-options" value="false"/>
         <property key="output-file-format" value="-mcof,+elf"/>
