@@ -24,3 +24,10 @@ void Init_USART (void){
     TXSTAbits.TXEN = 1; 
     
 }
+
+void Envio(char Dato){
+    while(TXSTAbits.TRMT == 0){
+        
+    }
+    TXREG = Dato;
+}

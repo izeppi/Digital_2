@@ -34,6 +34,7 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 void Init_USART (void);
+void Envio(char Dato);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 
