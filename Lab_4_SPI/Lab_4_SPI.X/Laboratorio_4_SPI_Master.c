@@ -32,6 +32,9 @@
 #define _XTAL_FREQ 4000000
 
 uint8_t  Contador = 0;
+uint8_t Pot_1 = 0;
+uint8_t Pot_2 = 0;
+
 
 void __interrupt()ISR (void){
     if (PIR1bits.RCIF == 1){
