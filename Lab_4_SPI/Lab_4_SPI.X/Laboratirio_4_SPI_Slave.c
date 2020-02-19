@@ -29,7 +29,6 @@
 #include <stdio.h>
 #include "ADC.h"
 #include "SPI.h"
-#include "USART.h"
 #define _XTAL_FREQ 4000000
  
 void Envio(char Lol);
