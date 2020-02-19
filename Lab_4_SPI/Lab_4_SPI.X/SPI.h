@@ -31,8 +31,12 @@
 #ifndef XC_HEADER_TEMPLATE_H
 #define	XC_HEADER_TEMPLATE_H
 
-#include <xc.h> // include processor files - each processor file is guarded.  
+#include <xc.h>
+#include <stdint.h>
 
-void init_SPI (uint8_t selector);
+void init_SPI (uint8_t selector, uint8_t sck_bit );
+void Recibo_SPI(uint8_t Variable);
+void Envio_SPI (uint8_t Data);
+
 #endif	/* XC_HEADER_TEMPLATE_H */
 

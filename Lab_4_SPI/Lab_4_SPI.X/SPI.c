@@ -21,7 +21,12 @@ void init_SPI (uint8_t selector, uint8_t sck_bit ){
          
 }  
 
-void Envio_SPI (uint8_t Valor){
-    while (PIR1bits.SSPIF == 0){}
-    
+void Recibo_SPI(uint8_t Variable){
+    while (SSPSTATbits.BF = 0){
+    }
+    Variable = SSPBUF;
+}
+
+void Envio_SPI (uint8_t Data){
+    SSPBUF = Data;
 }
