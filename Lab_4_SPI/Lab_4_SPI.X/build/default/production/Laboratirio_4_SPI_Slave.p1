@@ -1,51 +1,85 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2183 D:\Xc8\pic\include\pic16f887.h
-[s S82 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S82 . BF UA R_nW S P D_nA CKE SMP ]
-"2193
-[s S83 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S83 . . R . D ]
-"2199
-[s S84 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S84 . . I2C_READ I2C_START I2C_STOP I2C_DATA ]
-"2206
-[s S85 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S85 . . nW . nA ]
-"2212
-[s S86 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S86 . . nWRITE . nADDRESS ]
-"2218
-[s S87 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S87 . . R_W . D_A ]
-"2224
-[s S88 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S88 . . READ_WRITE . DATA_ADDRESS ]
-"2182
-[u S81 `S82 1 `S83 1 `S84 1 `S85 1 `S86 1 `S87 1 `S88 1 ]
-[n S81 . . . . . . . . ]
-"2231
-[v _SSPSTATbits `VS81 ~T0 @X0 0 e@148 ]
-"856
-[s S30 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S30 . SSPM CKP SSPEN SSPOV WCOL ]
-"863
-[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S31 . SSPM0 SSPM1 SSPM2 SSPM3 ]
-"855
-[u S29 `S30 1 `S31 1 ]
-[n S29 . . . ]
-"870
-[v _SSPCONbits `VS29 ~T0 @X0 0 e@20 ]
-"1546
-[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1545
-[u S56 `S57 1 ]
-[n S56 . . ]
-"1557
-[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
-"843
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+[t ~ __interrupt . k ]
+[t T10 __interrupt  ]
+"543 D:\Xc8\pic\include\pic16f887.h
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"39 ADC.h
+[v _Canales_ADC `(v ~T0 @X0 0 ef1`uc ]
+"1238 D:\Xc8\pic\include\pic16f887.h
+[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+"1251
+[s S45 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
+[n S45 . ADON GO_nDONE CHS ADCS ]
+"1257
+[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S46 . . GO CHS0 CHS1 CHS2 CHS3 ADCS0 ADCS1 ]
+"1267
+[s S47 :1 `uc 1 :1 `uc 1 ]
+[n S47 . . nDONE ]
+"1271
+[s S48 :1 `uc 1 :1 `uc 1 ]
+[n S48 . . GO_DONE ]
+"1250
+[u S44 `S45 1 `S46 1 `S47 1 `S48 1 ]
+[n S44 . . . . . ]
+"1276
+[v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
+[p mainexit ]
+"38 SPI.h
+[v _Recibo_SPI `(v ~T0 @X0 0 ef1`uc ]
+[v F1258 `(v ~T0 @X0 1 tf1`ul ]
+"92 D:\Xc8\pic\include\pic.h
+[v __delay `JF1258 ~T0 @X0 0 e ]
+[p i __delay ]
+"39 SPI.h
+[v _Envio_SPI `(v ~T0 @X0 0 ef1`uc ]
+"37 ADC.h
+[v _Init_ADC `(v ~T0 @X0 0 ef ]
+"465 D:\Xc8\pic\include\pic16f887.h
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"38 ADC.h
+[v _Interrupciones_ADC `(v ~T0 @X0 0 ef ]
+"37 SPI.h
+[v _init_SPI `(v ~T0 @X0 0 ef2`uc`uc ]
+"8 Laboratirio_4_SPI_Slave.c
+[p x FOSC=INTRC_NOCLKOUT ]
+"9
+[p x WDTE=OFF ]
+"10
+[p x PWRTE=OFF ]
+"11
+[p x MCLRE=OFF ]
+"12
+[p x CP=OFF ]
+"13
+[p x CPD=OFF ]
+"14
+[p x BOREN=OFF ]
+"15
+[p x IESO=OFF ]
+"16
+[p x FCMEN=OFF ]
+"17
+[p x LVP=OFF ]
+"20
+[p x BOR4V=BOR40V ]
+"21
+[p x WRT=OFF ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1558,76 +1592,191 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 282: typedef uint32_t uintmax_t;
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
-"13 SPI.c
-[v _init_SPI `(v ~T0 @X0 1 ef2`uc`uc ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;ADC.h: 37: void Init_ADC(void);
+[; ;ADC.h: 38: void Interrupciones_ADC (void);
+[; ;ADC.h: 39: void Canales_ADC (char Canal);
+[; ;SPI.h: 37: void init_SPI (uint8_t selector, uint8_t sck_bit );
+[; ;SPI.h: 38: void Recibo_SPI(uint8_t Variable);
+[; ;SPI.h: 39: void Envio_SPI (uint8_t Data);
+[; ;Laboratirio_4_SPI_Slave.c: 34: void Envio(char Lol);
+[; ;Laboratirio_4_SPI_Slave.c: 35: void FloatDec(float Variable,uint8_t Selector );
+"37 Laboratirio_4_SPI_Slave.c
+[v _Pot_1 `uc ~T0 @X0 1 e ]
+[i _Pot_1
+-> -> 0 `i `uc
+]
+[; ;Laboratirio_4_SPI_Slave.c: 37: unsigned char Pot_1 = 0;
+"38
+[v _Pot_2 `uc ~T0 @X0 1 e ]
+[i _Pot_2
+-> -> 0 `i `uc
+]
+[; ;Laboratirio_4_SPI_Slave.c: 38: unsigned char Pot_2 = 0;
+"39
+[v _b `c ~T0 @X0 1 e ]
+[i _b
+-> -> 0 `i `c
+]
+[; ;Laboratirio_4_SPI_Slave.c: 39: int8_t b = 0;
+"40
+[v _Counter `uc ~T0 @X0 1 e ]
+[i _Counter
+-> -> 1 `i `uc
+]
+[; ;Laboratirio_4_SPI_Slave.c: 40: unsigned char Counter = 1;
+"41
+[v _Sel_pot `uc ~T0 @X0 1 e ]
+[i _Sel_pot
+-> -> 0 `i `uc
+]
+[; ;Laboratirio_4_SPI_Slave.c: 41: uint8_t Sel_pot = 0;
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"43
+[v _ISR `(v ~T10 @X0 1 ef ]
 {
-[; ;SPI.c: 13: void init_SPI (uint8_t selector, uint8_t sck_bit ){
-[e :U _init_SPI ]
-[v _selector `uc ~T0 @X0 1 r1 ]
-[v _sck_bit `uc ~T0 @X0 1 r2 ]
+[; ;Laboratirio_4_SPI_Slave.c: 43: void __interrupt()ISR (void){
+[e :U _ISR ]
 [f ]
-[; ;SPI.c: 14: SSPSTATbits.SMP = 0;
-"14
-[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
-[; ;SPI.c: 15: SSPSTATbits.CKE = 1;
-"15
-[e = . . _SSPSTATbits 0 6 -> -> 1 `i `uc ]
-[; ;SPI.c: 16: SSPCONbits.SSPEN = 1;
-"16
-[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
-[; ;SPI.c: 17: SSPCONbits.CKP = 1;
-"17
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
-[; ;SPI.c: 18: SSPCONbits.SSPM = selector;
-"18
-[e = . . _SSPCONbits 0 0 _selector ]
-[; ;SPI.c: 19: TRISCbits.TRISC5 = 0;
-"19
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;SPI.c: 20: TRISCbits.TRISC3 = sck_bit;
-"20
-[e = . . _TRISCbits 0 3 _sck_bit ]
-[; ;SPI.c: 22: }
-"22
-[e :UE 138 ]
+[; ;Laboratirio_4_SPI_Slave.c: 44: if (PIR1bits.ADIF == 1)
+"44
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 140  ]
+[; ;Laboratirio_4_SPI_Slave.c: 45: {
+"45
+{
+[; ;Laboratirio_4_SPI_Slave.c: 46: b++;
+"46
+[e ++ _b -> -> 1 `i `c ]
+[; ;Laboratirio_4_SPI_Slave.c: 47: if(b%2 == 1){
+"47
+[e $ ! == % -> _b `i -> 2 `i -> 1 `i 141  ]
+{
+[; ;Laboratirio_4_SPI_Slave.c: 48: Canales_ADC(8);
+"48
+[e ( _Canales_ADC (1 -> -> 8 `i `uc ]
+[; ;Laboratirio_4_SPI_Slave.c: 49: Pot_1 = ADRESH;
+"49
+[e = _Pot_1 _ADRESH ]
+"50
 }
-"24
-[v _Recibo_SPI `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;SPI.c: 24: void Recibo_SPI(uint8_t Variable){
-[e :U _Recibo_SPI ]
-[v _Variable `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;SPI.c: 25: while (SSPSTATbits.BF = 0){
-"25
-[e $U 140  ]
 [e :U 141 ]
+[; ;Laboratirio_4_SPI_Slave.c: 50: }
+[; ;Laboratirio_4_SPI_Slave.c: 51: if (b%2 == 0){
+"51
+[e $ ! == % -> _b `i -> 2 `i -> 0 `i 142  ]
 {
-"26
+[; ;Laboratirio_4_SPI_Slave.c: 52: Canales_ADC(9);
+"52
+[e ( _Canales_ADC (1 -> -> 9 `i `uc ]
+[; ;Laboratirio_4_SPI_Slave.c: 53: Pot_2 = ADRESH;
+"53
+[e = _Pot_2 _ADRESH ]
+"54
+}
+[e :U 142 ]
+[; ;Laboratirio_4_SPI_Slave.c: 54: }
+[; ;Laboratirio_4_SPI_Slave.c: 55: ADCON0bits.GO_DONE = 1;
+"55
+[e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
+[; ;Laboratirio_4_SPI_Slave.c: 56: PIR1bits.ADIF = 0;
+"56
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"57
 }
 [e :U 140 ]
-"25
-[e $ != -> = . . _SSPSTATbits 0 0 -> -> 0 `i `uc `i -> -> -> 0 `i `Vuc `i 141  ]
-[e :U 142 ]
-[; ;SPI.c: 26: }
-[; ;SPI.c: 27: Variable = SSPBUF;
-"27
-[e = _Variable _SSPBUF ]
-[; ;SPI.c: 28: }
-"28
+[; ;Laboratirio_4_SPI_Slave.c: 57: }
+[; ;Laboratirio_4_SPI_Slave.c: 58: }
+"58
 [e :UE 139 ]
 }
-"30
-[v _Envio_SPI `(v ~T0 @X0 1 ef1`uc ]
+[; ;Laboratirio_4_SPI_Slave.c: 60: void Configuracion(void);
+[v $root$_main `(v ~T0 @X0 0 e ]
+"62
+[v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;SPI.c: 30: void Envio_SPI (uint8_t Data){
-[e :U _Envio_SPI ]
-[v _Data `uc ~T0 @X0 1 r1 ]
+[; ;Laboratirio_4_SPI_Slave.c: 62: void main(void) {
+[e :U _main ]
 [f ]
-[; ;SPI.c: 31: SSPBUF = Data;
-"31
-[e = _SSPBUF _Data ]
-[; ;SPI.c: 32: }
-"32
+[; ;Laboratirio_4_SPI_Slave.c: 63: Recibo_SPI (Sel_pot);
+"63
+[e ( _Recibo_SPI (1 _Sel_pot ]
+[; ;Laboratirio_4_SPI_Slave.c: 64: _delay((unsigned long)((100)*(4000000/4000.0)));
+"64
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;Laboratirio_4_SPI_Slave.c: 65: if (Sel_pot == 1){
+"65
+[e $ ! == -> _Sel_pot `i -> 1 `i 144  ]
+{
+[; ;Laboratirio_4_SPI_Slave.c: 66: Envio_SPI(Pot_1);
+"66
+[e ( _Envio_SPI (1 _Pot_1 ]
+"67
+}
+[e :U 144 ]
+[; ;Laboratirio_4_SPI_Slave.c: 67: }
+[; ;Laboratirio_4_SPI_Slave.c: 68: if (Sel_pot == 2){
+"68
+[e $ ! == -> _Sel_pot `i -> 2 `i 145  ]
+{
+[; ;Laboratirio_4_SPI_Slave.c: 69: Envio_SPI(Pot_2);
+"69
+[e ( _Envio_SPI (1 _Pot_2 ]
+"70
+}
+[e :U 145 ]
+[; ;Laboratirio_4_SPI_Slave.c: 70: }
+[; ;Laboratirio_4_SPI_Slave.c: 71: }
+"71
 [e :UE 143 ]
+}
+"73
+[v _Configuracion `(v ~T0 @X0 1 ef ]
+{
+[; ;Laboratirio_4_SPI_Slave.c: 73: void Configuracion(void){
+[e :U _Configuracion ]
+[f ]
+[; ;Laboratirio_4_SPI_Slave.c: 74: Init_ADC();
+"74
+[e ( _Init_ADC ..  ]
+[; ;Laboratirio_4_SPI_Slave.c: 75: INTCONbits.GIE = 1;
+"75
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;Laboratirio_4_SPI_Slave.c: 76: Interrupciones_ADC();
+"76
+[e ( _Interrupciones_ADC ..  ]
+[; ;Laboratirio_4_SPI_Slave.c: 77: init_SPI(0101,1);
+"77
+[e ( _init_SPI (2 , -> -> 65 `i `uc -> -> 1 `i `uc ]
+[; ;Laboratirio_4_SPI_Slave.c: 78: }
+"78
+[e :UE 146 ]
 }

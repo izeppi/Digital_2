@@ -37,6 +37,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S29 . . . ]
 "870
 [v _SSPCONbits `VS29 ~T0 @X0 0 e@20 ]
+[v F1258 `(v ~T0 @X0 1 tf1`ul ]
+"92 D:\Xc8\pic\include\pic.h
+[v __delay `JF1258 ~T0 @X0 0 e ]
+[p i __delay ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1550,28 +1554,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
 [v $root$_main `(v ~T0 @X0 0 e ]
-"12 Laboratirio_4_SPI.c
+"13 Laboratirio_4_SPI.c
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Laboratirio_4_SPI.c: 12: void main(void) {
+[; ;Laboratirio_4_SPI.c: 13: void main(void) {
 [e :U _main ]
 [f ]
-[; ;Laboratirio_4_SPI.c: 13: SSPSTATbits.SMP = 0;
-"13
-[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
-[; ;Laboratirio_4_SPI.c: 14: SSPSTATbits.CKE = 1;
+[; ;Laboratirio_4_SPI.c: 14: SSPSTATbits.SMP = 0;
 "14
-[e = . . _SSPSTATbits 0 6 -> -> 1 `i `uc ]
-[; ;Laboratirio_4_SPI.c: 15: SSPCONbits.SSPEN = 1;
+[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
+[; ;Laboratirio_4_SPI.c: 15: SSPSTATbits.CKE = 1;
 "15
-[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
-[; ;Laboratirio_4_SPI.c: 16: SSPCONbits.CKP = 1;
+[e = . . _SSPSTATbits 0 6 -> -> 1 `i `uc ]
+[; ;Laboratirio_4_SPI.c: 16: SSPCONbits.SSPEN = 1;
 "16
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
-[; ;Laboratirio_4_SPI.c: 17: SSPCONbits.SSPM = 0xF;
+[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
+[; ;Laboratirio_4_SPI.c: 17: SSPCONbits.CKP = 1;
 "17
-[e = . . _SSPCONbits 0 0 -> -> 15 `i `uc ]
-[; ;Laboratirio_4_SPI.c: 19: }
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;Laboratirio_4_SPI.c: 18: SSPCONbits.SSPM = 0x0;
+"18
+[e = . . _SSPCONbits 0 0 -> -> 0 `i `uc ]
+[; ;Laboratirio_4_SPI.c: 19: _delay((unsigned long)((2000)*(4000000/4000.0)));
 "19
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;Laboratirio_4_SPI.c: 20: SSPCONbits.SSPM = 0xF;
+"20
+[e = . . _SSPCONbits 0 0 -> -> 15 `i `uc ]
+[; ;Laboratirio_4_SPI.c: 21: }
+"21
 [e :UE 138 ]
 }

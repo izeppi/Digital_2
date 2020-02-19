@@ -3,6 +3,12 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
+"13 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\ADC.c
+[v _Init_ADC Init_ADC `(v  1 e 1 0 ]
+"23
+[v _Interrupciones_ADC Interrupciones_ADC `(v  1 e 1 0 ]
+"28
+[v _Canales_ADC Canales_ADC `(v  1 e 1 0 ]
 "10 D:\Xc8\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 D:\Xc8\pic\sources\c90\common\Umul8_16.c
@@ -11,15 +17,53 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"12 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\Laboratirio_4_SPI.c
+"43 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\Laboratirio_4_SPI_Slave.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"62
 [v _main main `(v  1 e 1 0 ]
+"13 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\SPI.c
+[v _init_SPI init_SPI `(v  1 e 1 0 ]
+"24
+[v _Recibo_SPI Recibo_SPI `(v  1 e 1 0 ]
+"30
+[v _Envio_SPI Envio_SPI `(v  1 e 1 0 ]
+[s S248 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"482 D:\Xc8\pic\include\pic16f887.h
+[s S257 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S262 . 1 `S248 1 . 1 0 `S257 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES262  1 e 1 @11 ]
+[s S476 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S484 . 1 `S476 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES484  1 e 1 @12 ]
+"843
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 [s S111 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
-"870 D:\Xc8\pic\include\pic16f887.h
+"870
 [s S117 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
@@ -27,6 +71,76 @@
 ]
 [u S122 . 1 `S111 1 . 1 0 `S117 1 . 1 0 ]
 [v _SSPCONbits SSPCONbits `VES122  1 e 1 @20 ]
+[s S407 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"1068
+[s S416 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S420 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S423 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S426 . 1 `S407 1 . 1 0 `S416 1 . 1 0 `S420 1 . 1 0 `S423 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES426  1 e 1 @24 ]
+"1238
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+[s S187 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+`uc 1 ADCS 1 0 :2:6 
+]
+"1276
+[s S192 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 ADCS0 1 0 :1:6 
+`uc 1 ADCS1 1 0 :1:7 
+]
+[s S201 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S204 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[u S207 . 1 `S187 1 . 1 0 `S192 1 . 1 0 `S201 1 . 1 0 `S204 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES207  1 e 1 @31 ]
+[s S137 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1557
+[u S146 . 1 `S137 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES146  1 e 1 @135 ]
+[s S280 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1718
+[u S288 . 1 `S280 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES288  1 e 1 @140 ]
 [s S22 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
@@ -70,8 +184,84 @@
 ]
 [u S62 . 1 `S22 1 . 1 0 `S31 1 . 1 0 `S36 1 . 1 0 `S42 1 . 1 0 `S47 1 . 1 0 `S52 1 . 1 0 `S57 1 . 1 0 ]
 [v _SSPSTATbits SSPSTATbits `VES62  1 e 1 @148 ]
-"12 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\Laboratirio_4_SPI.c
+[s S348 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2582
+[s S357 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S361 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S364 . 1 `S348 1 . 1 0 `S357 1 . 1 0 `S361 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES364  1 e 1 @152 ]
+"2642
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+[s S233 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"2991
+[u S239 . 1 `S233 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES239  1 e 1 @159 ]
+[s S385 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"3352
+[u S394 . 1 `S385 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES394  1 e 1 @391 ]
+"37 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\Laboratirio_4_SPI_Slave.c
+[v _Pot_1 Pot_1 `uc  1 e 1 0 ]
+"38
+[v _Pot_2 Pot_2 `uc  1 e 1 0 ]
+"39
+[v _b b `c  1 e 1 0 ]
+"62
 [v _main main `(v  1 e 1 0 ]
 {
-"19
+"71
+} 0
+"24 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\SPI.c
+[v _Recibo_SPI Recibo_SPI `(v  1 e 1 0 ]
+{
+[v Recibo_SPI@Variable Variable `uc  1 a 1 wreg ]
+[v Recibo_SPI@Variable Variable `uc  1 a 1 wreg ]
+"28
+} 0
+"30
+[v _Envio_SPI Envio_SPI `(v  1 e 1 0 ]
+{
+[v Envio_SPI@Data Data `uc  1 a 1 wreg ]
+[v Envio_SPI@Data Data `uc  1 a 1 wreg ]
+[v Envio_SPI@Data Data `uc  1 a 1 5 ]
+"32
+} 0
+"43 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\Laboratirio_4_SPI_Slave.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"58
+} 0
+"28 D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\ADC.c
+[v _Canales_ADC Canales_ADC `(v  1 e 1 0 ]
+{
+[v Canales_ADC@Canal Canal `uc  1 a 1 wreg ]
+[v Canales_ADC@Canal Canal `uc  1 a 1 wreg ]
+[v Canales_ADC@Canal Canal `uc  1 a 1 0 ]
+"44
 } 0

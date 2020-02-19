@@ -1,5 +1,5 @@
 
-# 1 "Laboratirio_4_SPI.c"
+# 1 "USART.c"
 
 # 18 "D:\Xc8\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2491,99 +2491,21 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 13 "D:\Xc8\pic\include\c90\stdint.h"
-typedef signed char int8_t;
+# 36 "USART.h"
+void Init_USART (void);
 
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef __int24 int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 52
-typedef unsigned char uint8_t;
-
-# 58
-typedef unsigned int uint16_t;
-
-# 65
-typedef __uint24 uint24_t;
-
-# 72
-typedef unsigned long int uint32_t;
-
-# 88
-typedef signed char int_least8_t;
-
-# 96
-typedef signed int int_least16_t;
-
-# 109
-typedef __int24 int_least24_t;
-
-# 118
-typedef signed long int int_least32_t;
-
-# 136
-typedef unsigned char uint_least8_t;
-
-# 143
-typedef unsigned int uint_least16_t;
-
-# 154
-typedef __uint24 uint_least24_t;
-
-# 162
-typedef unsigned long int uint_least32_t;
-
-# 181
-typedef signed char int_fast8_t;
-
-# 188
-typedef signed int int_fast16_t;
-
-# 200
-typedef __int24 int_fast24_t;
-
-# 208
-typedef signed long int int_fast32_t;
-
-# 224
-typedef unsigned char uint_fast8_t;
-
-# 230
-typedef unsigned int uint_fast16_t;
-
-# 240
-typedef __uint24 uint_fast24_t;
-
-# 247
-typedef unsigned long int uint_fast32_t;
-
-# 268
-typedef int32_t intmax_t;
-
-# 282
-typedef uint32_t uintmax_t;
-
-# 289
-typedef int16_t intptr_t;
+# 13 "USART.c"
+void Init_USART (void){
 
 
+PIE1bits.RCIE = 1;
 
+TXSTAbits.SYNC = 0;
+TXSTAbits.BRGH = 0;
+BAUDCTLbits.BRG16 = 1;
+SPBRG = 25;
+RCSTAbits.SPEN = 1;
+RCSTAbits.CREN = 1;
+TXSTAbits.TXEN = 1;
 
-typedef uint16_t uintptr_t;
-
-# 13 "Laboratirio_4_SPI.c"
-void main(void) {
-SSPSTATbits.SMP = 0;
-SSPSTATbits.CKE = 1;
-SSPCONbits.SSPEN = 1;
-SSPCONbits.CKP = 1;
-SSPCONbits.SSPM = 0x0;
-_delay((unsigned long)((2000)*(4000000/4000.0)));
-SSPCONbits.SSPM = 0xF;
 }

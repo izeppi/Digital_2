@@ -2578,12 +2578,23 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 # 13 "SPI.c"
-void init_SPI (uint8_t selector){
+void init_SPI (uint8_t selector, uint8_t sck_bit ){
 SSPSTATbits.SMP = 0;
 SSPSTATbits.CKE = 1;
 SSPCONbits.SSPEN = 1;
 SSPCONbits.CKP = 1;
 SSPCONbits.SSPM = selector;
+TRISCbits.TRISC5 = 0;
+TRISCbits.TRISC3 = sck_bit;
 
+}
 
+void Recibo_SPI(uint8_t Variable){
+while (SSPSTATbits.BF = 0){
+}
+Variable = SSPBUF;
+}
+
+void Envio_SPI (uint8_t Data){
+SSPBUF = Data;
 }

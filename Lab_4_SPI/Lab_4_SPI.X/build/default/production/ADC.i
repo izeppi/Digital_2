@@ -1,5 +1,5 @@
 
-# 1 "Laboratirio_4_SPI.c"
+# 1 "ADC.c"
 
 # 18 "D:\Xc8\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2491,99 +2491,41 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 13 "D:\Xc8\pic\include\c90\stdint.h"
-typedef signed char int8_t;
+# 37 "ADC.h"
+void Init_ADC(void);
+void Interrupciones_ADC (void);
+void Canales_ADC (char Canal);
 
-# 20
-typedef signed int int16_t;
+# 13 "ADC.c"
+void Init_ADC(void) {
+ADCON0bits.ADCS0 = 1;
+ADCON0bits.ADCS1 = 0;
+ADCON0bits.ADON = 1;
+ADCON0bits.GO_DONE = 1;
+ADCON1bits.ADFM = 0;
+ADCON1bits.VCFG0 = 0;
+ADCON1bits.VCFG1 = 0;
+}
 
-# 28
-typedef __int24 int24_t;
+void Interrupciones_ADC (void){
+INTCONbits.PEIE = 1;
+PIE1bits.ADIE = 1;
+}
 
-# 36
-typedef signed long int int32_t;
+void Canales_ADC (char Canal){
+if (Canal == 8){
 
-# 52
-typedef unsigned char uint8_t;
+ADCON0bits.CHS0 = 0;
+ADCON0bits.CHS1 = 0;
+ADCON0bits.CHS2 = 0;
+ADCON0bits.CHS3 = 1;
+}
+if (Canal == 9){
 
-# 58
-typedef unsigned int uint16_t;
+ADCON0bits.CHS0 = 1;
+ADCON0bits.CHS1 = 0;
+ADCON0bits.CHS2 = 0;
+ADCON0bits.CHS3 = 1;
+}
 
-# 65
-typedef __uint24 uint24_t;
-
-# 72
-typedef unsigned long int uint32_t;
-
-# 88
-typedef signed char int_least8_t;
-
-# 96
-typedef signed int int_least16_t;
-
-# 109
-typedef __int24 int_least24_t;
-
-# 118
-typedef signed long int int_least32_t;
-
-# 136
-typedef unsigned char uint_least8_t;
-
-# 143
-typedef unsigned int uint_least16_t;
-
-# 154
-typedef __uint24 uint_least24_t;
-
-# 162
-typedef unsigned long int uint_least32_t;
-
-# 181
-typedef signed char int_fast8_t;
-
-# 188
-typedef signed int int_fast16_t;
-
-# 200
-typedef __int24 int_fast24_t;
-
-# 208
-typedef signed long int int_fast32_t;
-
-# 224
-typedef unsigned char uint_fast8_t;
-
-# 230
-typedef unsigned int uint_fast16_t;
-
-# 240
-typedef __uint24 uint_fast24_t;
-
-# 247
-typedef unsigned long int uint_fast32_t;
-
-# 268
-typedef int32_t intmax_t;
-
-# 282
-typedef uint32_t uintmax_t;
-
-# 289
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 13 "Laboratirio_4_SPI.c"
-void main(void) {
-SSPSTATbits.SMP = 0;
-SSPSTATbits.CKE = 1;
-SSPCONbits.SSPEN = 1;
-SSPCONbits.CKP = 1;
-SSPCONbits.SSPM = 0x0;
-_delay((unsigned long)((2000)*(4000000/4000.0)));
-SSPCONbits.SSPM = 0xF;
 }

@@ -1,5 +1,22 @@
 
-# 1 "Laboratirio_4_SPI.c"
+# 1 "Laboratirio_4_SPI_Slave.c"
+
+
+# 8
+#pragma config FOSC = INTRC_NOCLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
+
+
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
 
 # 18 "D:\Xc8\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2577,13 +2594,122 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 13 "Laboratirio_4_SPI.c"
+# 4 "D:\Xc8\pic\include\__size_t.h"
+typedef unsigned size_t;
+
+# 7 "D:\Xc8\pic\include\c90\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "D:\Xc8\pic\include\c90\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "D:\Xc8\pic\include\c90\errno.h"
+extern int errno;
+
+# 12 "D:\Xc8\pic\include\c90\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "D:\Xc8\pic\include\c90\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 37 "ADC.h"
+void Init_ADC(void);
+void Interrupciones_ADC (void);
+void Canales_ADC (char Canal);
+
+# 37 "SPI.h"
+void init_SPI (uint8_t selector, uint8_t sck_bit );
+void Recibo_SPI(uint8_t Variable);
+void Envio_SPI (uint8_t Data);
+
+# 34 "Laboratirio_4_SPI_Slave.c"
+void Envio(char Lol);
+void FloatDec(float Variable,uint8_t Selector );
+
+unsigned char Pot_1 = 0;
+unsigned char Pot_2 = 0;
+int8_t b = 0;
+unsigned char Counter = 1;
+uint8_t Sel_pot = 0;
+
+void __interrupt()ISR (void){
+if (PIR1bits.ADIF == 1)
+{
+b++;
+if(b%2 == 1){
+Canales_ADC(8);
+Pot_1 = ADRESH;
+}
+if (b%2 == 0){
+Canales_ADC(9);
+Pot_2 = ADRESH;
+}
+ADCON0bits.GO_DONE = 1;
+PIR1bits.ADIF = 0;
+}
+}
+
+void Configuracion(void);
+
 void main(void) {
-SSPSTATbits.SMP = 0;
-SSPSTATbits.CKE = 1;
-SSPCONbits.SSPEN = 1;
-SSPCONbits.CKP = 1;
-SSPCONbits.SSPM = 0x0;
-_delay((unsigned long)((2000)*(4000000/4000.0)));
-SSPCONbits.SSPM = 0xF;
+Recibo_SPI (Sel_pot);
+_delay((unsigned long)((100)*(4000000/4000.0)));
+if (Sel_pot == 1){
+Envio_SPI(Pot_1);
+}
+if (Sel_pot == 2){
+Envio_SPI(Pot_2);
+}
+}
+
+void Configuracion(void){
+Init_ADC();
+INTCONbits.GIE = 1;
+Interrupciones_ADC();
+init_SPI(0101,1);
 }
