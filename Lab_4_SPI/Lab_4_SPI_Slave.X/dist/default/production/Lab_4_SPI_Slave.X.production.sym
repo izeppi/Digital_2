@@ -188,7 +188,7 @@ cstackCOMMON 70 78 COMMON 70 1
 cstackBANK0 20 27 BANK0 20 1
 %locals
 dist/default/production\Lab_4_SPI_Slave.X.production.o
-C:\Users\Marco\AppData\Local\Temp\s1tjs.s
+C:\Users\Marco\AppData\Local\Temp\s2dmc.s
 802 F 0 CODE 0
 805 F 0 CODE 0
 834 F 0 CODE 0
