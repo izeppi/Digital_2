@@ -28,7 +28,7 @@
 #include <pic16f887.h>
 #include <stdio.h>
 #include "USART.h"
-#include "SPI.h"
+#include "SPI_1.h"
 #define _XTAL_FREQ 4000000
 
 uint8_t  Contador = 0;
@@ -36,26 +36,27 @@ uint8_t Pot_1 = 0;
 uint8_t Pot_2 = 0;
 
 
+void Conf(void);
+
 void __interrupt()ISR (void){
     if (PIR1bits.RCIF == 1){
         Contador = RCREG;
 }
-
-
-void Configuracion(void);
+}
 
 void main(void) {
-    Configuracion();
-    Envio_SPI (1);
-    __delay_ms(100);
+    Conf();
+    spiWrite(1);
+    __delay_ms(10);
     
     while(1){
-        Envio_SPI(2);      // Envio el # del Pot 2
-        Recibo_SPI(Pot_1);  //Recibo valor del Pot 1 
-        __delay_ms(100);
-        Envio_SPI(1);       // Envio el # del Pot 1
-        Recibo_SPI(Pot_2); //Recibo valor del Pot 2
-        __delay_ms(100);
+        spiWrite(2);      // Envio el # del Pot 2
+        Pot_1 = spiRead();  //Recibo valor del Pot 1 
+        __delay_ms(10);
+        spiWrite(1);       // Envio el # del Pot 1
+        Pot_2 =spiRead(); //Recibo valor del Pot 2
+        __delay_ms(10);
+        
         Envio (Pot_1);      // UART pot 1
         Envio (Pot_2);     // UART pot 2
         PORTA = Contador;
@@ -63,12 +64,14 @@ void main(void) {
 }
 
 
-void Configuracion(void){
+void Conf(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISA = 0;
-    PORTA = 0;
+    TRISB = 0;
+    PORTB = 0;
+    TRISC2 = 0;
+    PORTCbits.RC2 = 0;
     INTCONbits.GIE = 1;
     Init_USART();
-    init_SPI(0101,1); 
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 }

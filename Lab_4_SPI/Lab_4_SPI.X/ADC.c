@@ -26,19 +26,19 @@ void Interrupciones_ADC (void){
 }
 
 void Canales_ADC (char Canal){
-    if (Canal == 8){
+    if (Canal == 0){
                                  //Seleccion de canales                                                Posicion de bits
     ADCON0bits.CHS0 = 0; // canal (0000 ANS0 ; 0001 ANS1 ; 0010 ANS2 ; 0011 ANS3)                 0001
     ADCON0bits.CHS1 = 0; // canal (0100 ANS4 ; 0101 ANS5 ; 0110 ANS6 ; 0111 ANS7)                 0010  
     ADCON0bits.CHS2 = 0; // canal (1000 ANS8 ; 1001 ANS9 ; 1010 ANS10 ; 1011 ANS11)               0100
-    ADCON0bits.CHS3 = 1; // canal (1100 ANS12 ; 1101 ANS13; 1110 Cvref ; 1111 Fixed (0.6V))       1000
+    ADCON0bits.CHS3 = 0; // canal (1100 ANS12 ; 1101 ANS13; 1110 Cvref ; 1111 Fixed (0.6V))       1000
     }
-    if (Canal == 9){
+    if (Canal == 4){
                                  //Seleccion de canales                                                Posicion de bits
     ADCON0bits.CHS0 = 1; // canal (0000 ANS0 ; 0001 ANS1 ; 0010 ANS2 ; 0011 ANS3)                 0001
-    ADCON0bits.CHS1 = 0; // canal (0100 ANS4 ; 0101 ANS5 ; 0110 ANS6 ; 0111 ANS7)                 0010  
+    ADCON0bits.CHS1 = 1; // canal (0100 ANS4 ; 0101 ANS5 ; 0110 ANS6 ; 0111 ANS7)                 0010  
     ADCON0bits.CHS2 = 0; // canal (1000 ANS8 ; 1001 ANS9 ; 1010 ANS10 ; 1011 ANS11)               0100
-    ADCON0bits.CHS3 = 1; // canal (1100 ANS12 ; 1101 ANS13; 1110 Cvref ; 1111 Fixed (0.6V))       1000
+    ADCON0bits.CHS3 = 0; // canal (1100 ANS12 ; 1101 ANS13; 1110 Cvref ; 1111 Fixed (0.6V))       1000
     }
     
 }

@@ -31,46 +31,60 @@
 #include "SPI.h"
 #define _XTAL_FREQ 4000000
 
-unsigned char Pot_1 = 0;
-unsigned char Pot_2 = 0;
-int8_t b = 0;
-unsigned char Counter = 1;
-uint8_t Sel_pot = 0;
+void Configuracion(void);
+int Pot_1 = 0;
+int Pot_2 = 0;
+int b = 0;
+int ADC_Sel = 1;
 
-void __interrupt()ISR (void){
-    if (PIR1bits.ADIF == 1)
-    {
+
+
+void __interrupt() ISR(void){
+   if(SSPIF == 1){
+        ADC_Sel = spiRead();
+        if (ADC_Sel == 1){
+           spiWrite(Pot_1); 
+        }else {
+            spiWrite(Pot_2); 
+        }
+        SSPIF = 0;
+    }
+    if(ADIF){
         b++;
-        if(b%2 == 1){
-            Canales_ADC(8);
+        if (b%2==1){
+            Canales_ADC(0);
             Pot_1 = ADRESH;
         }
         if (b%2 == 0){
-            Canales_ADC(9);
+            Canales_ADC(3);
             Pot_2 = ADRESH;
         }
-      ADCON0bits.GO_DONE = 1;
-      PIR1bits.ADIF = 0;
+        ADCON0bits.GO_DONE = 1;
+        ADIF = 0;
     }
 }
 
-void Configuracion(void);
 
 void main(void) {
-    Configuracion ();
-    Recibo_SPI (Sel_pot);
-    __delay_ms(100);
-    if (Sel_pot == 1){
-        Envio_SPI(Pot_1);
+    Configuracion();
+    while(1){
+
     }
-    if (Sel_pot == 2){
-        Envio_SPI(Pot_2);
-    }
+    return;
 }
 
+
 void Configuracion(void){
+    ANSEL = 0B11111111;
+    ANSELH = 0;
+    TRISB = 0;
+    TRISA = 0B11111111;   
+    INTCONbits.GIE = 1;         // Habilitamos interrupciones
+    INTCONbits.PEIE = 1;        // Habilitamos interrupciones PEIE
+    PIR1bits.SSPIF = 0;         // Borramos bandera interrupción MSSP
+    PIE1bits.SSPIE = 1;         // Habilitamos interrupción MSSP
     Init_ADC();
-    INTCONbits.GIE = 1;
-    Interrupciones_ADC();
-    init_SPI(0101,1); 
+   
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+
 }

@@ -22,7 +22,7 @@ void init_SPI (uint8_t selector, uint8_t sck_bit ){
 }  
 
 void Recibo_SPI(uint8_t Variable){
-    while (SSPSTATbits.BF = 0){
+    while (SSPSTATbits.BF == 0){
     }
     Variable = SSPBUF;
 }
