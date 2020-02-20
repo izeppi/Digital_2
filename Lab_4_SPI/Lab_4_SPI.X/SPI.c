@@ -8,25 +8,45 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include "SPI.h"
 
-
-void init_SPI (uint8_t selector, uint8_t sck_bit ){
-    SSPSTATbits.SMP = 0;
-    SSPSTATbits.CKE = 1;
-    SSPCONbits.SSPEN = 1;
-    SSPCONbits.CKP = 1;
-    SSPCONbits.SSPM = selector;   // Master = 0000  Slave = 0101
-    TRISCbits.TRISC5 = 0;
-    TRISCbits.TRISC3 = sck_bit;   // Master = 0    Slave = 1
-         
-}  
-
-void Recibo_SPI(uint8_t Variable){
-    while (SSPSTATbits.BF == 0){
+void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+{
+    TRISC5 = 0;
+    if(sType & 0b00000100) //If Slave Mode
+    {
+        SSPSTAT = sTransmitEdge;
+        TRISC3 = 1;
     }
-    Variable = SSPBUF;
+    else              //If Master Mode
+    {
+        SSPSTAT = sDataSample | sTransmitEdge;
+        TRISC3 = 0;
+    }
+    
+    SSPCON = sType | sClockIdle;
 }
 
-void Envio_SPI (uint8_t Data){
-    SSPBUF = Data;
+static void spiReceiveWait()
+{
+    while ( !SSPSTATbits.BF ); // Wait for Data Receive complete
+}
+
+void spiWrite(char dat)  //Write data to SPI bus
+{
+    SSPBUF = dat;
+}
+
+unsigned spiDataReady() //Check whether the data is ready to read
+{
+    if(SSPSTATbits.BF)
+        return 1;
+    else
+        return 0;
+}
+
+char spiRead() //REad the received data
+{
+    spiReceiveWait();        // wait until the all bits receive
+    return(SSPBUF); // read the received data from the buffer
 }

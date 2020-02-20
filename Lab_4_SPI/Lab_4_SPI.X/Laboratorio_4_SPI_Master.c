@@ -28,7 +28,7 @@
 #include <pic16f887.h>
 #include <stdio.h>
 #include "USART.h"
-#include "SPI_1.h"
+#include "SPI.h"
 #define _XTAL_FREQ 4000000
 
 uint8_t  Contador = 0;

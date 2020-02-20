@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Marco\AppData\Local\Temp\s2hqk.o
+$C:\Users\Marco\AppData\Local\Temp\s2fsc.o
 end_init CODE 0 8 8 4 2
 $dist/default/production\Lab_4_SPI.X.production.o
 cinit CODE 0 7F9 7F9 7 2
@@ -69,14 +69,14 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab_4_SPI.X.production.o
-7F9 cinit CODE >954:C:\Users\Marco\AppData\Local\Temp\s2hqk.s
-7F9 cinit CODE >957:C:\Users\Marco\AppData\Local\Temp\s2hqk.s
-7F9 cinit CODE >974:C:\Users\Marco\AppData\Local\Temp\s2hqk.s
-7FA cinit CODE >975:C:\Users\Marco\AppData\Local\Temp\s2hqk.s
-7FB cinit CODE >976:C:\Users\Marco\AppData\Local\Temp\s2hqk.s
-7FC cinit CODE >982:C:\Users\Marco\AppData\Local\Temp\s2hqk.s
-7FC cinit CODE >984:C:\Users\Marco\AppData\Local\Temp\s2hqk.s
-7FD cinit CODE >985:C:\Users\Marco\AppData\Local\Temp\s2hqk.s
+7F9 cinit CODE >954:C:\Users\Marco\AppData\Local\Temp\s2fsc.s
+7F9 cinit CODE >957:C:\Users\Marco\AppData\Local\Temp\s2fsc.s
+7F9 cinit CODE >974:C:\Users\Marco\AppData\Local\Temp\s2fsc.s
+7FA cinit CODE >975:C:\Users\Marco\AppData\Local\Temp\s2fsc.s
+7FB cinit CODE >976:C:\Users\Marco\AppData\Local\Temp\s2fsc.s
+7FC cinit CODE >982:C:\Users\Marco\AppData\Local\Temp\s2fsc.s
+7FC cinit CODE >984:C:\Users\Marco\AppData\Local\Temp\s2fsc.s
+7FD cinit CODE >985:C:\Users\Marco\AppData\Local\Temp\s2fsc.s
 0 intentry CODE >41:D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\Laboratorio_4_SPI_Master.c
 75E text4 CODE >41:D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\Laboratorio_4_SPI_Master.c
 75E text4 CODE >42:D:\Documentos\pic\Digital_2\Lab_4_SPI\Lab_4_SPI.X\Laboratorio_4_SPI_Master.c
@@ -142,21 +142,21 @@ __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _Conf F06 0 CODE 0 text2 dist/default/production\Lab_4_SPI.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Marco\AppData\Local\Temp\s2hqk.o
+___sp 0 0 STACK 2 stack C:\Users\Marco\AppData\Local\Temp\s2fsc.o
 _main F46 0 CODE 0 maintext dist/default/production\Lab_4_SPI.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
-start 10 0 CODE 0 init C:\Users\Marco\AppData\Local\Temp\s2hqk.o
+start 10 0 CODE 0 init C:\Users\Marco\AppData\Local\Temp\s2fsc.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __size_of_Conf 0 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2hqk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2hqk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2hqk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2hqk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2hqk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2hqk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2fsc.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2fsc.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2fsc.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2fsc.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2fsc.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Marco\AppData\Local\Temp\s2fsc.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -164,8 +164,8 @@ __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 _SSPCONbits 14 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\Marco\AppData\Local\Temp\s2hqk.o
-___stacklo 0 0 ABS 0 - C:\Users\Marco\AppData\Local\Temp\s2hqk.o
+___stackhi 0 0 ABS 0 - C:\Users\Marco\AppData\Local\Temp\s2fsc.o
+___stacklo 0 0 ABS 0 - C:\Users\Marco\AppData\Local\Temp\s2fsc.o
 __size_of_Envio 0 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 _Init_USART EDE 0 CODE 0 text3 dist/default/production\Lab_4_SPI.X.production.o
@@ -175,7 +175,7 @@ start_initialization FF2 0 CODE 0 cinit dist/default/production\Lab_4_SPI.X.prod
 _TRISCbits 87 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 _TRISC2 43A 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Marco\AppData\Local\Temp\s2hqk.o
+___int_sp 0 0 STACK 2 stack C:\Users\Marco\AppData\Local\Temp\s2fsc.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -223,7 +223,7 @@ saved_w 7E 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __end_of_ISR EDE 0 CODE 0 text4 dist/default/production\Lab_4_SPI.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Marco\AppData\Local\Temp\s2hqk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Marco\AppData\Local\Temp\s2fsc.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Lab_4_SPI.X.production.o
 __pmaintext F46 0 CODE 0 maintext dist/default/production\Lab_4_SPI.X.production.o
