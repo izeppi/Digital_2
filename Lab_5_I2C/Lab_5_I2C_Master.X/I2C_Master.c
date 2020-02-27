@@ -29,15 +29,13 @@
 
 #define _XTAL_FREQ 4000000
 
-uint8_t Pot_1, Sensor , S_1;
+uint8_t Pot_1, Sensor , S_1, S_2, Cont;
 char valor[16];
 
 void Configuracion(void);
 
 void main(void) {
     Configuracion();
-    LCD_CmdWrite(0xC0);
-    LCD_DataWrite(" S1    S2    S3 ");
     while(1){
         I2C_Master_Start();
         I2C_Master_Write(0x51);
@@ -49,12 +47,25 @@ void main(void) {
         I2C_Master_Write(0x61);
         Sensor = I2C_Master_Read(0);
         I2C_Master_Stop();
-        __delay_ms(10);   
+        __delay_ms(10);
         
+        I2C_Master_Start();
+        I2C_Master_Write(0x71);
+        Cont = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(10);
+        
+        // Luz
         S_1 = (Sensor*100)/220;
         
+        // Temp
+        //S_1 = Sensor-233
+    
+        LCD_CmdWrite(0xC0);
+        LCD_DataWrite(" S1    S2    S3 ");
+        
         LCD_CmdWrite(0x80);
-        sprintf(valor, "%.3d   %.3d%%  ", Pot_1,S_1);
+        sprintf(valor, "%.3d   %.3d%%  %.3d", Pot_1,S_1,Cont);
         LCD_DataWrite(valor);
         
     }

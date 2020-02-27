@@ -41,7 +41,7 @@
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
 "37 D:\Documentos\pic\Digital_2\Lab_5_I2C\Lab_5_I2C_Master.X\I2C_Master.c
 [v _main main `(v  1 e 1 0 ]
-"63
+"74
 [v _Configuracion Configuracion `(v  1 e 1 0 ]
 "36 D:\Documentos\pic\Digital_2\Lab_5_I2C\Lab_5_I2C_Master.X\LCD.c
 [v _LCD_CmdWrite LCD_CmdWrite `(v  1 e 1 0 ]
@@ -121,36 +121,37 @@
 [v _Pot_1 Pot_1 `uc  1 e 1 0 ]
 [v _Sensor Sensor `uc  1 e 1 0 ]
 [v _S_1 S_1 `uc  1 e 1 0 ]
+[v _Cont Cont `uc  1 e 1 0 ]
 "33
 [v _valor valor `[16]uc  1 e 16 0 ]
 "37
 [v _main main `(v  1 e 1 0 ]
 {
-"61
+"72
 } 0
 "505 D:\Xc8\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 "545
-[v sprintf@val val `ui  1 a 2 13 ]
+[v sprintf@val val `ui  1 a 2 15 ]
 "546
-[v sprintf@len len `ui  1 a 2 11 ]
+[v sprintf@len len `ui  1 a 2 13 ]
 "512
-[v sprintf@c c `uc  1 a 1 17 ]
+[v sprintf@c c `uc  1 a 1 19 ]
 "521
-[v sprintf@prec prec `c  1 a 1 16 ]
+[v sprintf@prec prec `c  1 a 1 18 ]
 "547
-[v sprintf@cp cp `*.4DCuc  1 a 1 10 ]
+[v sprintf@cp cp `*.4DCuc  1 a 1 12 ]
 "525
-[v sprintf@flag flag `uc  1 a 1 9 ]
+[v sprintf@flag flag `uc  1 a 1 11 ]
 "507
-[v sprintf@ap ap `[1]*.4v  1 a 1 8 ]
+[v sprintf@ap ap `[1]*.4v  1 a 1 10 ]
 "505
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 [v sprintf@f f `*.24DCuc  1 p 1 0 ]
 "550
-[v sprintf@sp sp `*.4uc  1 a 1 15 ]
+[v sprintf@sp sp `*.4uc  1 a 1 17 ]
 "1567
 } 0
 "8 D:\Xc8\pic\sources\c90\common\isdigit.c
@@ -265,10 +266,10 @@
 {
 "32
 } 0
-"63 D:\Documentos\pic\Digital_2\Lab_5_I2C\Lab_5_I2C_Master.X\I2C_Master.c
+"74 D:\Documentos\pic\Digital_2\Lab_5_I2C\Lab_5_I2C_Master.X\I2C_Master.c
 [v _Configuracion Configuracion `(v  1 e 1 0 ]
 {
-"68
+"79
 } 0
 "95 D:\Documentos\pic\Digital_2\Lab_5_I2C\Lab_5_I2C_Master.X\LCD.c
 [v _init_LCD init_LCD `(v  1 e 1 0 ]
