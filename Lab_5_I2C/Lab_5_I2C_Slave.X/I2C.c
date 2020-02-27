@@ -91,11 +91,11 @@ void I2C_Slave_Init(uint8_t address)
     SSPCON = 0x36;      // 0b00110110
     SSPSTAT = 0x80;     // 0b10000000
     SSPCON2 = 0x01;     // 0b00000001
-    TRISC3 = 1;
-    TRISC4 = 1;
-    GIE = 1;
-    PEIE = 1;
-    SSPIF = 0;
-    SSPIE = 1;
+    TRISCbits.TRISC3 = 1;
+    TRISCbits.TRISC4 = 1;
+    INTCONbits.GIE = 1;         // Habilitamos interrupciones
+    INTCONbits.PEIE = 1;
+     PIR1bits.SSPIF = 0;         // Borramos bandera interrupción MSSP
+    PIE1bits.SSPIE = 1;         // Habilitamos interrupción MSSP
 }
 //*****************************************************************************

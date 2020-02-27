@@ -1,8 +1,8 @@
 /*
- * File:   I2C_Slave.c
+ * File:   I2C_Master.c
  * Author: Marco
  *
- * Created on 21 de febrero de 2020, 11:43 AM
+ * Created on 25 de febrero de 2020, 11:30 PM
  */
 
 #pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -21,7 +21,40 @@
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
 
 #include <xc.h>
+#include <stdint.h>
+#include<stdio.h>
+#include <pic16f887.h>
+#include "I2C.h"
+#include "LCD.h"
+
+#define _XTAL_FREQ 4000000
+
+uint8_t val;
+char valor[16];
+
+void Configuracion(void);
 
 void main(void) {
-    return;
+    Configuracion();
+    LCD_CmdWrite(0xC0);
+    LCD_DataWrite(" S1    S2    S3 ");
+    while(1){
+        I2C_Master_Start();
+        I2C_Master_Write(0x51);
+        val = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(10);   
+        
+        LCD_CmdWrite(0x80);
+        sprintf(valor, "%.3d", val);
+        LCD_DataWrite(valor);
+        
+    }
+}
+
+void Configuracion (void){
+    TRISB = 0;
+    TRISD = 0;
+    I2C_Master_Init(100000);       // Inicializar Comuncación I2C
+    init_LCD(); 
 }

@@ -2,11 +2,11 @@
 #include <stdint.h>
 #include <stdio.h> 
 
-#define lcd PORTA                   //----Assing PORTD as lcd
+#define lcd PORTB                   //----Assing PORTD as lcd
  
-#define rs PORTCbits.RC2            //----Register Select Pin for Control of LCD
-#define rw PORTCbits.RC1           //----Read/Write Pin for Control of LCD
-#define en PORTCbits.RC0            //----Enable Pin for Control of LCD
+#define rs PORTDbits.RD5            //----Register Select Pin for Control of LCD
+#define rw PORTDbits.RD6           //----Read/Write Pin for Control of LCD
+#define en PORTDbits.RD7            //----Enable Pin for Control of LCD
 #define _XTAL_FREQ 4000000
  
 
