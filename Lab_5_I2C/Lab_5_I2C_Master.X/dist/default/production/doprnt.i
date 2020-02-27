@@ -383,10 +383,28 @@ sprintf(char * sp, const char * f, ...)
   case 'd':
   case 'i':
    break;
+# 776 "D:\\Xc8\\pic\\sources\\c90\\common\\doprnt.c"
+dostring:
+
+
+   if(prec && (prec < ((int)len)))
+    len = (unsigned char)prec;
+# 793 "D:\\Xc8\\pic\\sources\\c90\\common\\doprnt.c"
+   while(len--)
+    ((*sp++ = (*cp++)));
+
+
+
+
+
+   continue;
 # 828 "D:\\Xc8\\pic\\sources\\c90\\common\\doprnt.c"
   default:
-# 839 "D:\\Xc8\\pic\\sources\\c90\\common\\doprnt.c"
-   continue;
+
+
+   cp = (char *)&c;
+   len = 1;
+   goto dostring;
 # 848 "D:\\Xc8\\pic\\sources\\c90\\common\\doprnt.c"
   }
 # 1279 "D:\\Xc8\\pic\\sources\\c90\\common\\doprnt.c"

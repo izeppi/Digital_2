@@ -161,12 +161,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 "725
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 725:    break;
 [e $U 17  ]
+"776
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 776: dostring:
+[e :U 23 ]
+"779
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 779:    if(prec && (prec < ((int)len)))
+[e $ ! && != -> _prec `i -> 0 `i < -> _prec `i -> _len `i 24  ]
+"780
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 780:     len = (unsigned char)prec;
+[e = _len -> -> _prec `uc `ui ]
+[e :U 24 ]
+"793
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 793:    while(len--)
+[e $U 25  ]
+[e :U 26 ]
+"794
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 794:     ((*sp++ = (*cp++)));
+[e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x *U ++ _cp * -> -> 1 `i `x -> -> # *U _cp `i `x ]
+[e :U 25 ]
+"793
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 793:    while(len--)
+[e $ != -- _len -> -> 1 `i `ui -> -> 0 `i `ui 26  ]
+[e :U 27 ]
+"800
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 800:    continue;
+[e $U 8  ]
 "828
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 828:   default:
-[e :U 23 ]
-"839
-[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 839:    continue;
-[e $U 8  ]
+[e :U 28 ]
+"831
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 831:    cp = (char *)&c;
+[e = _cp -> &U _c `*Cuc ]
+"832
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 832:    len = 1;
+[e = _len -> -> 1 `i `ui ]
+"833
+[; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 833:    goto dostring;
+[e $U 23  ]
 "848
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 848:   }
 }
@@ -175,7 +206,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e [\ -> = _c *U ++ _f * -> -> 1 `i `x -> -> # *U _f `i `x `i , $ -> 0 `i 19
  , $ -> -> 100 `ui `i 21
  , $ -> -> 105 `ui `i 22
- 23 ]
+ 28 ]
 [e :U 17 ]
 "1279
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1279:   {
@@ -185,7 +216,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _val -> *U -> ( ___va_arg , (. -> *U -> &U _ap `**i `*v -> 0 `i `*i `ui ]
 "1287
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1287:    if((int)val < 0) {
-[e $ ! < -> _val `i -> 0 `i 24  ]
+[e $ ! < -> _val `i -> 0 `i 29  ]
 {
 "1288
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1288:     flag |= 0x03;
@@ -196,68 +227,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1290
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1290:    }
 }
-[e :U 24 ]
+[e :U 29 ]
 "1292
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1292:   }
 }
 "1316
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1316:   if(prec == 0 && val == 0)
-[e $ ! && == -> _prec `i -> 0 `i == _val -> -> 0 `i `ui 25  ]
+[e $ ! && == -> _prec `i -> 0 `i == _val -> -> 0 `i `ui 30  ]
 "1317
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1317:    prec++;
 [e ++ _prec -> -> 1 `i `c ]
-[e :U 25 ]
+[e :U 30 ]
 "1331
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1331:    for(c = 1 ; c != sizeof dpowers/sizeof dpowers[0] ; c++)
 {
 [e = _c -> -> 1 `i `uc ]
-[e $ != -> _c `ui / -> # _dpowers `ui -> # *U + &U _dpowers * -> -> -> 0 `i `ui `ux -> -> # *U &U _dpowers `ui `ux `ui 26  ]
-[e $U 27  ]
-[e :U 26 ]
+[e $ != -> _c `ui / -> # _dpowers `ui -> # *U + &U _dpowers * -> -> -> 0 `i `ui `ux -> -> # *U &U _dpowers `ui `ux `ui 31  ]
+[e $U 32  ]
+[e :U 31 ]
 "1332
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1332:     if(val < dpowers[c])
-[e $ ! < _val *U + &U _dpowers * -> _c `ux -> -> # *U &U _dpowers `ui `ux 29  ]
+[e $ ! < _val *U + &U _dpowers * -> _c `ux -> -> # *U &U _dpowers `ui `ux 34  ]
 "1333
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1333:      break;
-[e $U 27  ]
-[e :U 29 ]
+[e $U 32  ]
+[e :U 34 ]
 [e ++ _c -> -> 1 `i `uc ]
-[e $ != -> _c `ui / -> # _dpowers `ui -> # *U + &U _dpowers * -> -> -> 0 `i `ui `ux -> -> # *U &U _dpowers `ui `ux `ui 26  ]
-[e :U 27 ]
+[e $ != -> _c `ui / -> # _dpowers `ui -> # *U + &U _dpowers * -> -> -> 0 `i `ui `ux -> -> # *U &U _dpowers `ui `ux `ui 31  ]
+[e :U 32 ]
 }
 "1365
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1365:   if(c < prec)
-[e $ ! < -> _c `i -> _prec `i 30  ]
+[e $ ! < -> _c `i -> _prec `i 35  ]
 "1366
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1366:    c = (char)prec;
 [e = _c -> _prec `uc ]
-[e $U 31  ]
+[e $U 36  ]
 "1367
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1367:   else if(prec < c)
-[e :U 30 ]
-[e $ ! < -> _prec `i -> _c `i 32  ]
+[e :U 35 ]
+[e $ ! < -> _prec `i -> _c `i 37  ]
 "1368
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1368:    prec = c;
 [e = _prec -> _c `c ]
-[e :U 32 ]
-[e :U 31 ]
+[e :U 37 ]
+[e :U 36 ]
 "1448
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1448:   {
 {
 "1464
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1464:    if(flag & 0x03)
-[e $ ! != & -> _flag `i -> 3 `i -> 0 `i 33  ]
+[e $ ! != & -> _flag `i -> 3 `i -> 0 `i 38  ]
 "1465
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1465:     ((*sp++ = ('-')));
 [e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x -> -> 45 `ui `uc ]
-[e :U 33 ]
+[e :U 38 ]
 "1495
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1495:   }
 }
 "1500
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1500:   while(prec--) {
-[e $U 34  ]
-[e :U 35 ]
+[e $U 39  ]
+[e :U 40 ]
 {
 "1504
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1504:    {
@@ -274,11 +305,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1551
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1551:   }
 }
-[e :U 34 ]
+[e :U 39 ]
 "1500
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1500:   while(prec--) {
-[e $ != -> -- _prec -> -> 1 `i `c `i -> 0 `i 35  ]
-[e :U 36 ]
+[e $ != -> -- _prec -> -> 1 `i `c `i -> 0 `i 40  ]
+[e :U 41 ]
 "1559
 [; ;D:\Xc8\pic\sources\c90\common\doprnt.c: 1559:  }
 }
